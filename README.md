@@ -1,5 +1,6 @@
 # Recurrent Neural Network Tutorial, Part 2 - Implementing a RNN in Python and Theano
 
+### Jupyter Notebook Setup
 
 System Requirements:
 
@@ -8,7 +9,7 @@ System Requirements:
 
 To start the [Jupyter Notebook](https://jupyter.org/index.html):
 
-```
+```bash
 # Clone the repo
 git clone https://github.com/dennybritz/rnn-tutorial-rnnlm
 cd rnn-tutorial-rnnlm
