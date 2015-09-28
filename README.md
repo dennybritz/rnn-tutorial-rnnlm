@@ -1,4 +1,4 @@
-# Recurrent Neural Network Tutorial, Part 2 - Implementing a RNN in Python and Theano
+# Recurrent Neural Networks Tutorial, Part 2 – Implementing a Language Model RNN with Python, Numpy and Theano
 
 ### Jupyter Notebook Setup
 
