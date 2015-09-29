@@ -17,7 +17,7 @@ from utils import *
 _VOCABULARY_SIZE = int(os.environ.get('VOCABULARY_SIZE', '5000'))
 _HIDDEN_DIM = int(os.environ.get('HIDDEN_DIM', '80'))
 _LEARNING_RATE = float(os.environ.get('LEARNING_RATE', '0.0025'))
-_ANNEAL_AFTER = int(os.environ.get('ANNEAL_AFTER', '40'))
+_ANNEAL_AFTER = int(os.environ.get('ANNEAL_AFTER', '10'))
 _NEPOCH = int(os.environ.get('NEPOCH', '100'))
 _MODEL_FILE = os.environ.get('MODEL_FILE')
 
@@ -153,10 +153,10 @@ def train_with_sgd(model, X_train, y_train, learning_rate=0.005, nepoch=1, annea
                 print "%s: Loss after num_examples_seen=%d epoch=%d: %f" % (time, num_examples_seen, epoch, loss)
                 save_model_parameters_theano("./data/rnn-theano-%d-%d-%s.npz" % (model.hidden_dim, vocabulary_size, time), model)
                 sys.stdout.flush()
+                # Adjust the learning rate if loss increases
+                if (len(losses) > 1 and losses[-1] > losses[-2]):
+                    learning_rate = learning_rate * anneal_factor
             num_examples_seen += 1
-        # Adjust the learning rate
-        if(epoch % anneal_after == 0):
-            learning_rate = learning_rate * anneal_factor
 
 
 
