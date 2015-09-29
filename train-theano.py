@@ -154,8 +154,9 @@ def train_with_sgd(model, X_train, y_train, learning_rate=0.005, nepoch=1, annea
                 save_model_parameters_theano("./data/rnn-theano-%d-%d-%s.npz" % (model.hidden_dim, vocabulary_size, time), model)
                 sys.stdout.flush()
                 # Adjust the learning rate if loss increases
-                if (len(losses) > 1 and losses[-1] > losses[-2]):
+                if (len(losses) > 1 and losses[-1][1] > losses[-2][1]):
                     learning_rate = learning_rate * anneal_factor
+                    print "Setting learning rate to %f" % learning_rate
             num_examples_seen += 1
 
 
