@@ -12,8 +12,10 @@ def save_model_parameters_theano(outfile, model):
 def load_model_parameters_theano(path, model):
     npzfile = np.load(path)
     U, V, W = npzfile["U"], npzfile["V"], npzfile["W"]
+    model.hidden_dim = U.shape[0]
+    model.word_dim = U.shape[1]
     model.U.set_value(U)
     model.V.set_value(V)
     model.W.set_value(W)
-    print "Loaded model parameters from %s." % path
+    print "Loaded model parameters from %s. hidden_dim=%d word_dim=%d" % (path, U.shape[0], U.shape[1])
     
