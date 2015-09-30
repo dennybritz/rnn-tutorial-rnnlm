@@ -1,5 +1,7 @@
 # Recurrent Neural Networks Tutorial, Part 2 – Implementing a Language Model RNN with Python, Numpy and Theano
 
+**[Please Read the Blog post that goes with this code](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/)**
+
 ### Jupyter Notebook Setup
 
 System Requirements:
