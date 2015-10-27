@@ -16,7 +16,7 @@ cd rnn-tutorial-rnnlm
 
 # Create a new virtual environment (optional, but recommended)
 virtualenv venv
-source venv/bin/active
+source venv/bin/activate
 
 # Install requirements
 pip install -r requirements.txt
