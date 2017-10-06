@@ -12,6 +12,8 @@ from datetime import datetime
 from utils import *
 from rnn_theano import RNNTheano
 
+nltk.download("book")
+
 _VOCABULARY_SIZE = int(os.environ.get('VOCABULARY_SIZE', '8000'))
 _HIDDEN_DIM = int(os.environ.get('HIDDEN_DIM', '80'))
 _LEARNING_RATE = float(os.environ.get('LEARNING_RATE', '0.005'))
