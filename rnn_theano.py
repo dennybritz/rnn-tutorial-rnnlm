@@ -81,7 +81,7 @@ def gradient_check_theano(model, x, y, h=0.001, error_threshold=0.01):
         # Get the actual parameter value from the mode, e.g. model.W
         parameter_T = operator.attrgetter(pname)(model)
         parameter = parameter_T.get_value()
-        print "Performing gradient check for parameter %s with size %d." % (pname, np.prod(parameter.shape))
+        print("Performing gradient check for parameter %s with size %d." % (pname, np.prod(parameter.shape)))
         # Iterate over each element of the parameter matrix, e.g. (0,0), (0,1), ...
         it = np.nditer(parameter, flags=['multi_index'], op_flags=['readwrite'])
         while not it.finished:
@@ -104,12 +104,12 @@ def gradient_check_theano(model, x, y, h=0.001, error_threshold=0.01):
             relative_error = np.abs(backprop_gradient - estimated_gradient)/(np.abs(backprop_gradient) + np.abs(estimated_gradient))
             # If the error is to large fail the gradient check
             if relative_error > error_threshold:
-                print "Gradient Check ERROR: parameter=%s ix=%s" % (pname, ix)
-                print "+h Loss: %f" % gradplus
-                print "-h Loss: %f" % gradminus
-                print "Estimated_gradient: %f" % estimated_gradient
-                print "Backpropagation gradient: %f" % backprop_gradient
-                print "Relative Error: %f" % relative_error
+                print("Gradient Check ERROR: parameter=%s ix=%s" % (pname, ix))
+                print("+h Loss: %f" % gradplus)
+                print("-h Loss: %f" % gradminus)
+                print("Estimated_gradient: %f" % estimated_gradient)
+                print("Backpropagation gradient: %f" % backprop_gradient)
+                print("Relative Error: %f" % relative_error)
                 return 
             it.iternext()
-        print "Gradient check for parameter %s passed." % (pname)
+        print("Gradient check for parameter %s passed." % (pname))
