@@ -21,7 +21,7 @@ mistune==0.7.1
 mock==1.3.0
 nbconvert==4.0.0
 nbformat==4.0.0
-nltk==3.0.5
+nltk==3.4.5
 nose==1.3.7
 notebook==4.0.4
 numpy==1.9.2
